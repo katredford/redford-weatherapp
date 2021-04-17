@@ -1,6 +1,9 @@
 
 function citySearch(){
   var city = document.getElementById("searchBox").value
+  const cityDisplay = document.getElementById("cityPlace")
+
+  cityDisplay.textContent = city
    console.log(city)
    
   fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cea924180544dde5b612be105dafb515&units=imperial")
@@ -17,17 +20,7 @@ function citySearch(){
       // var city = document.getElementById("city")
       // city.textContent = data.name
   
-      // var temp = document.getElementById("tempNumbers")
-      // temp.textContent = data.main.temp
-  
-      // var humid = document.getElementById("humNumbers")
-      // humid.textContent = data.main.humidity
-  
-      // var wind = document.getElementById("windNumbers")
-      // wind.textContent = data.wind.speed
-  
-      // var uv = document.getElementById("uvNumbers")
-      // uv.textContent = data.main.humidity
+
       const latitude = data.coord.lat
       const longitude = data.coord.lon
   
@@ -41,6 +34,34 @@ function citySearch(){
         const dateTime = data.current.dt
         console.log(dayjs.unix(dateTime).format("MMMM D, YYYY"))
         console.log(data)
+
+        var date =document.getElementById("datePlace")
+        date.innerHTML = dayjs.unix(dateTime).format("MMMM D, YYYY")
+
+        var temp = document.getElementById("tempNumbers")
+        temp.textContent = data.current.temp
+    
+        var humid = document.getElementById("humNumbers")
+        humid.textContent = data.current.humidity
+    
+        var wind = document.getElementById("windNumbers")
+        wind.textContent = data.current.wind_speed
+    
+        var uv = document.getElementById("uvNumbers")
+        uv.textContent = data.current.uvi
+
+        // console.log(data.daily[0])
+        var forcastData = data.daily
+        for (let i = 0; i < 5; i++) {
+          var dailyDisplay = forcastData[i];
+          const dateDaily = dailyDisplay.dt
+         
+        const iconDaily = dailyDisplay.weather[0].icon
+        
+        const tempDaily = dailyDisplay.temp.day
+        const humidDaily = dailyDisplay.humidity
+        console.log(iconDaily, tempDaily, humidDaily)
+         }
       })
   
       get5DayForecast()
