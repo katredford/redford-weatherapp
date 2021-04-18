@@ -53,14 +53,23 @@ function citySearch(){
         // console.log(data.daily[0])
         var forcastData = data.daily
         for (let i = 0; i < 5; i++) {
-          var dailyDisplay = forcastData[i];
-          const dateDaily = dailyDisplay.dt
-         
+        var dailyDisplay = forcastData[i];
+        const dateDaily = dailyDisplay.dt
+        const dateDisplay = dayjs.unix(dateDaily).format("MMMM D, YYYY")
         const iconDaily = dailyDisplay.weather[0].icon
         
         const tempDaily = dailyDisplay.temp.day
         const humidDaily = dailyDisplay.humidity
-        console.log(iconDaily, tempDaily, humidDaily)
+     
+        const iconPic = 'http://openweathermap.org/img/wn/' + iconDaily + '@2x.png'
+
+        const dayForcast = document.createElement("div")
+        const displayBox = document.getElementById("dailyPlace")
+        dayForcast.setAttribute("class", "dayBox container row col align-self-start")
+        dayForcast.innerHTML = dateDisplay + tempDaily + humidDaily 
+     
+        displayBox.appendChild(dayForcast)
+        console.log(forcastData[i])
          }
       })
   

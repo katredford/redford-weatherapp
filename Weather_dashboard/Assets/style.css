@@ -7,3 +7,10 @@
 .city {
     margin-left: -12.666667%;
 }
+
+.dayBox {
+    border-style: solid;
+    height: 200px;
+    width: 150px;
+    margin: 10px 10px 10px 10px;
+}
