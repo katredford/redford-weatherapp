@@ -59,17 +59,30 @@ function citySearch(){
         const iconDaily = dailyDisplay.weather[0].icon
         
         const tempDaily = dailyDisplay.temp.day
+        const dailyTemp = document.createElement("p")
+        dailyTemp.textContent = tempDaily
+        
         const humidDaily = dailyDisplay.humidity
-     
-        const iconPic = 'http://openweathermap.org/img/wn/' + iconDaily + '@2x.png'
+        const dailyHumid = document.createElement("p")
+        dailyHumid.textContent = humidDaily
 
-        const dayForcast = document.createElement("div")
+        const iconPic = 'http://openweathermap.org/img/wn/' + iconDaily + '@2x.png'
+        const iconImg = document.createElement("img")
+        iconImg.setAttribute("src", iconPic);
+          
+
+        const dailyDate = document.createElement("div")
         const displayBox = document.getElementById("dailyPlace")
-        dayForcast.setAttribute("class", "dayBox container row col align-self-start")
-        dayForcast.innerHTML = dateDisplay + tempDaily + humidDaily 
+        dailyDate.setAttribute("class", "dayBox col")
+        dailyDate.innerHTML = dateDisplay 
      
-        displayBox.appendChild(dayForcast)
-        console.log(forcastData[i])
+        dailyDate.appendChild(iconImg)
+        dailyDate.appendChild(dailyTemp)
+        dailyDate.appendChild(dailyHumid)
+        displayBox.appendChild(dailyDate)
+
+        
+        
          }
       })
   
