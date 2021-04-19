@@ -15,3 +15,18 @@
     margin: 10px 10px 10px 10px;
     padding: 8px 10px 10px 18px;
 }
+
+.favorable {
+    background-color: lawngreen;
+    width: 50px;
+}
+
+.moderate {
+    background-color: orange;
+    width: 50px;
+}
+
+.severe {
+    background-color: red;
+    width: 50px;
+}
