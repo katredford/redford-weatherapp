@@ -120,10 +120,10 @@ function citySearch(city){
         temp.textContent = "Temp: " +  data.current.temp
     
         var humid = document.getElementById("humNumbers")
-        humid.textContent = data.current.humidity
+        humid.textContent = "Humid: " + data.current.humidity
     
         var wind = document.getElementById("windNumbers")
-        wind.textContent = data.current.wind_speed
+        wind.textContent = "Wind: " + data.current.wind_speed
     
         var uv = document.getElementById("uvNumbers")
         if(data.current.uvi <= 4){
@@ -133,7 +133,7 @@ function citySearch(city){
         }else{
           uv.setAttribute("class", "severe")
         }
-        uv.textContent = data.current.uvi
+        uv.textContent = "UVI: " + data.current.uvi
 
         // console.log(data.daily[0])
         var forcastData = data.daily
@@ -151,7 +151,7 @@ function citySearch(city){
         
         const humidDaily = dailyDisplay.humidity
         const dailyHumid = document.createElement("p")
-        dailyHumid.textContent = humidDaily
+        dailyHumid.textContent = "Humid: " + humidDaily
 
         const iconPic = 'http://openweathermap.org/img/wn/' + iconDaily + '@2x.png'
         const iconImg = document.createElement("img")
