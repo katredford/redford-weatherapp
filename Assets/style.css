@@ -2,6 +2,7 @@
     border-style: solid;
     width: 150px;
     height: 300px;
+    padding-left: 5px;
 };
 
 .city {
