@@ -88,7 +88,8 @@ function citySearch(city){
   const cityDisplay = document.getElementById("cityPlace")
 
   //this tells the variable what text to display, the city that is typed in the searchbox
-  cityDisplay.textContent = city
+cityDisplay.textContent = city
+ 
    
   //this calls info from the api, it adds the typed city so thatis the info we get, then the api key, then putting the measurments into imperial
   fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=cea924180544dde5b612be105dafb515&units=imperial")
@@ -99,13 +100,17 @@ function citySearch(city){
       return response.json();
     })
 
+
+
     //this makes respons.json an easier variable to use
     .then(function(data) {
  
       //get this stuff from response nested in the data
-      const latitude = data.coord.lat
+      const latitude = data.coord.lat 
       const longitude = data.coord.lon
-  
+
+      console.log(data)
+      
       //this uses the latitude and longitude from the first fetch to get specific city info from this second api
       fetch( "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + 
       "&lon=" + longitude +
